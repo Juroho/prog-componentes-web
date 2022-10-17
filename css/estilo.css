@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Lobster&display=swap');
+:root{
+    --color-primary: #444cf7;
+    --color-tittle: #000;
+    --aling-text:left;
+    --alig-tittle:left;
+    --padding-container: 100px 0;
+    --width-container: 90%;
+    --max-width-container: 1200px;
+    --color-btn: #444cf7;
+    --text-btn:#fff;
+    --padding-btn:20px 35px;
+    --height-shape:18em;
+}
+body{
+    font-family: 'inter', sans-serif;
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#444cf7 0.7000000000000001px, transparent 0.7000000000000001px),
+     radial-gradient(#444cf7 0.7000000000000001px, #e5e5f7 0.7000000000000001px);
+     background-size: 28px 28px;
+     background-position: 0 0 14px 14px;
+}
+/*CABECERA*/
+.container{
+    width: 90%;
+    max-width: var(--max-width-container);
+    padding: var(--padding-container);
+    margin: 0 auto;
+    overflow: hidden;/*si es mas grande que el contenedor, lo oculta*/
+}
+.hero{
+    height: 100vh;
+    min-height: 500px;
+    position: relative;
+    --adding-container:0;
+}
+.hero::after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: var(--height-shape);
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    z-index: -1;/*Envia hacia atras toda la clase hero*/
+    clip-path: polygon(0 100%,100% 100%,100% 0);
+}
+.hero_container{
+    display: grid;/*hace que la disposicion de los elementos este en forma de celdas y columnas*/
+    height: 100%;/*la altura de la seccion ocupa el 100% del espacio disponible arriba yabajo*/
+    grid-template-columns: 3fr 2fr;/*implica o define que el grid se usara en columnas, y les da un tamaño especifico*/
+    place-items: center;/*Todos los elementos dentro de esta clase estaran en el centro*/
+    gap: 20px;/*Define el espacio que habra entre las filas y las columnas*/
+}
+.hero_tittle{
+    font-size: 4rem;
+}
+.hero_copy{
+    font-size: 1.2rem;
+    margin: 25px 0;
+}
+.hero_cta{
+    display: inline-block;
+    background-color: var(--color-btn);
+    color: #fff;
+    padding: var(--padding-btn);
+    text-align: center;
+    text-decoration: none;
+}
+.hero_img{
+    width: 95%;
+}
+/*MAIN*/
+.main{
+    background: #fff;
+}
+.tittle{
+    font-size: 2.5rem;
+    text-align: var(--alig-tittle);
+    color: var(--color-tittle);
+}
+.tittle--border::after{
+    content: "";
+    display: block;
+    width: 100px;
+    margin-top: 20px;
+    height: 4px;
+    background-color: var(--color-primary);
+}
+.cta{
+    display: inline-block;
+    background-color: var(--color-btn);
+    color: var(--text-btn);
+    padding: var(--padding-btn);
+    text-align: center;
+    text-decoration: none;
+}
+/*INSTRUCTOR*/
+.instructor{
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    --padding-container: 30px 0 60px;
+}
+.instructor_container{
+    width: 70%;
+    margin: 0 auto;
+}
+.instructor_name{
+    margin: 20px 0;
+}
+.instructor_tag{
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+.instructor_paragraph{
+    text-align: left;
+    line-height: 1.5px;
+    font-style: italic;
+    color: #3d3b3b;
+    text-align: center;
+}
+.instructor_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+/*ABOUT*/
+.about{
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    place-items: center;
+}
+.about_course{
+    width: 90%;
+}
+.about_paragraph{
+    margin:20px 0;
+    line-height: 1.5;/*determina el grosor del boloque de texto*/
+    font-weight: 300;
+}
+.about_picture{
+    text-align: center;
+}
+.about_img{
+    width: 90%;
+}
+/*CARD*/
+.card{
+    background: #f2f2f2;
+}
+.card_copy{
+    margin-top: 20px;
+}
+.card_container{
+    width: 99%;
+    margin: 0 auto;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 20px;
+    grid-template-areas: 
+    ".      card1   .    "
+    "card2  card1   card3"
+    "card2  card4   card3"
+    ".      card4   .   ";
+}
+.card_item{
+    padding: 20px;
+    background: #fff;
+    border-top: 5px solid#667eea;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card_img{
+    background:var(--color-primary);
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_tittle{
+    margin:20px 0;
+    font-size: 1.5em;
+}
+.card_paragraph{
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.card_item:nth-last-of-type(1){
+    grid-area: card1;
+}
+.card_item:nth-last-of-type(2){
+    grid-area: card2;
+}
+.card_item:nth-last-of-type(3){
+    grid-area: card3;
+}
+.card_item:nth-last-of-type(4){
+    grid-area: card4;
+}
+/*CURSO*/
+.course{
+    --color-tittle:#fff;
+    --color-btn:#fff;
+    --txt-btn:#444cf7;
+    color:var(--color-tittle);
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5,1fr);
+}
+.course_about{
+    z-index: 100;
+    align-self: center;
+    width: 97%;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    background: var(--color-primary);
+    grid-column: 1/4;
+    grid-row: 2/-2;
+}
+.course_picture{
+    margin: 0;
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+}
+.course_img{
+    width: 100%;
+    height: 100%;object-fit: cover;
+}
+.course_picture--right{
+    grid-column: 1/4;
+}
+.course_picture--left{
+    grid-column: 3/-1;
+}
+
+.footer{
+    background-color: var(--color-primary);
+    padding: 10px;
+    display: flex;
+}
+.footer_tittle{
+    color: var(--text-btn);
+    text-align: center;
+}
+.footer_paragraph{
+    color:var(--text-btn);
+    text-align: justify;
+}
+.footer .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 100px;
+}
